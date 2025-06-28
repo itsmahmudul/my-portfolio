@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Skill-Stack",
+    "description": "Skill Stack is a comprehensive Course Management System enabling users to browse courses, enroll, and manage learning efficiently with secure JWT-based APIs.",
+    "github": "https://github.com/itsmahmudul/skill-stack",
+    "liveDemo": "https://skill-stack-e19ed.web.app/",
+    "image": "https://i.ibb.co/27yYKPLp/Screenshot-2025-06-28-215257.png",
+    "techStack": [
+      { "name": "React", "url": "https://react.dev/" },
+      { "name": "Tailwind CSS", "url": "https://tailwindcss.com/" },
+      { "name": "Express.js", "url": "https://expressjs.com/" },
+      { "name": "MongoDB", "url": "https://www.mongodb.com/" },
+      { "name": "JWT Auth", "url": "https://jwt.io/" },
+      { "name": "Axios", "url": "https://axios-http.com/" },
+      { "name": "Node.js", "url": "https://nodejs.org/" },
+      { "name": "Firebase Hosting", "url": "https://firebase.google.com/products/hosting" }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "PlantPal Tracker",
+    "description": "PlantPal helps users track watering and care routines for their indoor plants with reminders, dashboards, and MongoDB-based storage.",
+    "github": "https://github.com/yourusername/plantpal",
+    "liveDemo": "https://plantpal.web.app/",
+    "image": "https://i.ibb.co/4mQ6c6B/plantpal-preview.png",
+    "techStack": [
+      { "name": "React", "url": "https://react.dev/" },
+      { "name": "Tailwind CSS", "url": "https://tailwindcss.com/" },
+      { "name": "Express.js", "url": "https://expressjs.com/" },
+      { "name": "MongoDB", "url": "https://www.mongodb.com/" },
+      { "name": "JWT Auth", "url": "https://jwt.io/" },
+      { "name": "Axios", "url": "https://axios-http.com/" },
+      { "name": "Node.js", "url": "https://nodejs.org/" },
+      { "name": "Firebase Hosting", "url": "https://firebase.google.com/products/hosting" }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Portflow",
+    "description": "A stylish developer portfolio template with animated sections, dark mode, and responsive design using Tailwind CSS and Framer Motion.",
+    "github": "https://github.com/yourusername/portflow",
+    "liveDemo": "https://portflow.web.app/",
+    "image": "https://i.ibb.co/6RYvdMJ/portfolio-demo.png",
+    "techStack": [
+      { "name": "React", "url": "https://react.dev/" },
+      { "name": "Tailwind CSS", "url": "https://tailwindcss.com/" },
+      { "name": "Express.js", "url": "https://expressjs.com/" },
+      { "name": "MongoDB", "url": "https://www.mongodb.com/" },
+      { "name": "JWT Auth", "url": "https://jwt.io/" },
+      { "name": "Axios", "url": "https://axios-http.com/" },
+      { "name": "Node.js", "url": "https://nodejs.org/" },
+      { "name": "Firebase Hosting", "url": "https://firebase.google.com/products/hosting" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "TaskForge",
+    "description": "TaskForge is a simple yet powerful task manager app with authentication, real-time updates, and productivity-focused UI.",
+    "github": "https://github.com/yourusername/taskforge",
+    "liveDemo": "https://taskforge-app.web.app/",
+    "image": "https://i.ibb.co/mGr0bFt/taskforge-snap.png",
+    "techStack": [
+      { "name": "React", "url": "https://react.dev/" },
+      { "name": "Tailwind CSS", "url": "https://tailwindcss.com/" },
+      { "name": "Express.js", "url": "https://expressjs.com/" },
+      { "name": "MongoDB", "url": "https://www.mongodb.com/" },
+      { "name": "JWT Auth", "url": "https://jwt.io/" },
+      { "name": "Axios", "url": "https://axios-http.com/" },
+      { "name": "Node.js", "url": "https://nodejs.org/" },
+      { "name": "Firebase Hosting", "url": "https://firebase.google.com/products/hosting" }
+    ]
+  }
+]

@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Pic from '../../assets/My-Pic.png';
 import { ArrowRight, Github, Linkedin } from 'lucide-react';
 import { Link } from 'react-router';
 import { motion } from 'framer-motion';
-import Projects from './Projects/Projects';
+import Card from './Projects/Card';
+
+import Lottie from 'lottie-react';
+import projectsAnimation from '../../assets/projects.json';
+
+import AnimatedBackground from './Animated-bg/AnimatedBackground';
+import ContactSection from './ContactSection/ContactSection';
 
 const UpworkIcon = (props) => (
     <svg
@@ -47,17 +53,29 @@ const skills = [
 ];
 
 const Home = () => {
+    const [projectsData, setProjectsData] = useState([]);
+
+    useEffect(() => {
+        fetch('/projects.json')
+            .then((res) => res.json())
+            .then((data) => setProjectsData(data))
+            .catch((err) => console.error('Failed to load projects:', err));
+    }, []);
+
+    const topProjects = projectsData.slice(0, 3);
+
     return (
         <div className="bg-black text-white">
             {/* Hero Section */}
-            <section>
+            <section className="relative overflow-hidden pb-20 pt-20 px-4 sm:px-6 lg:px-8">
+                <AnimatedBackground />
+
                 <motion.div
-                    className="min-h-screen flex flex-col items-center justify-center px-4 font-sans"
+                    className="min-h-screen flex flex-col items-center justify-center font-sans relative z-10"
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible"
                 >
-                    {/* Profile Picture */}
                     <motion.div
                         variants={itemVariants}
                         className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-cyan-500 shadow-lg mb-6"
@@ -69,50 +87,63 @@ const Home = () => {
                         />
                     </motion.div>
 
-                    {/* Title */}
                     <motion.h1
                         variants={itemVariants}
-                        className="text-3xl md:text-5xl font-bold text-center"
+                        className="text-3xl sm:text-4xl md:text-5xl font-bold text-center"
                     >
-                        CraftedBy<span className="text-cyan-400">Mahmudul</span>
+                        CraftedBy
+                        <span className="text-cyan-400">Mahmudul</span>
                     </motion.h1>
 
-                    {/* Subtitle */}
                     <motion.p
                         variants={itemVariants}
-                        className="mt-4 text-lg md:text-xl text-gray-300 text-center max-w-lg"
+                        className="mt-4 text-base sm:text-lg md:text-xl text-gray-300 text-center max-w-lg"
                     >
                         Frontend Developer specializing in clean UI and interactive web experiences.
                     </motion.p>
 
-                    {/* Additional Description */}
                     <motion.p
                         variants={itemVariants}
-                        className="mt-4 text-md md:text-lg text-gray-400 text-center max-w-xl"
+                        className="mt-4 text-sm sm:text-md md:text-lg text-gray-400 text-center max-w-xl"
                     >
-                        I am a MERN stack and frontend developer passionate about building scalable, responsive, and user-friendly web applications. Skilled in React, Node.js, Express, and MongoDB, I create seamless digital experiences with a focus on performance and accessibility.
+                        I am a MERN stack and frontend developer passionate about building scalable, responsive, and user-friendly web
+                        applications. Skilled in React, Node.js, Express, and MongoDB, I create seamless digital experiences with a focus
+                        on performance and accessibility.
                     </motion.p>
 
-                    {/* Social Links */}
-                    <motion.div
-                        variants={itemVariants}
-                        className="flex gap-8 mt-8"
-                    >
-                        <a href="https://github.com/itsmahmudul" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-400 transition">
-                            <Github size={28} />
+                    <motion.div variants={itemVariants} className="flex gap-6 sm:gap-8 mt-6 sm:mt-8">
+                        <a
+                            href="https://github.com/itsmahmudul"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-gray-400 hover:text-cyan-400 transition"
+                            aria-label="GitHub Profile"
+                        >
+                            <Github size={24} />
                         </a>
-                        <a href="https://www.linkedin.com/in/md-mahmudul-alam-3a6447370/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-400 transition">
-                            <Linkedin size={28} />
+                        <a
+                            href="https://www.linkedin.com/in/md-mahmudul-alam-3a6447370/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-gray-400 hover:text-cyan-400 transition"
+                            aria-label="LinkedIn Profile"
+                        >
+                            <Linkedin size={24} />
                         </a>
-                        <a href="https://www.upwork.com/freelancers/~01abcdef1234567890" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-400 transition">
-                            <UpworkIcon className="w-7 h-7" />
+                        <a
+                            href="https://www.upwork.com/freelancers/~01abcdef1234567890"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-gray-400 hover:text-cyan-400 transition"
+                            aria-label="Upwork Profile"
+                        >
+                            <UpworkIcon className="w-6 h-6" />
                         </a>
                     </motion.div>
 
-                    {/* CTA Button */}
-                    <motion.div variants={itemVariants}>
-                        <Link to="/projects">
-                            <button className="mt-6 flex items-center gap-2 px-6 py-3 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold rounded-xl shadow-md transition">
+                    <motion.div variants={itemVariants} className="mt-6">
+                        <Link to="/projects" aria-label="View Projects">
+                            <button className="flex items-center gap-2 px-6 py-3 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold rounded-xl shadow-md transition">
                                 View Projects <ArrowRight size={20} />
                             </button>
                         </Link>
@@ -121,7 +152,7 @@ const Home = () => {
             </section>
 
             {/* Skills Section */}
-            <section className="w-full bg-black py-16 px-4 md:px-20">
+            <section className="w-full bg-black py-20 px-4 sm:px-6 lg:px-20">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -129,7 +160,12 @@ const Home = () => {
                     viewport={{ once: true }}
                     className="max-w-6xl mx-auto text-center"
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold mb-10 text-cyan-400">My Skills</h2>
+                    <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-cyan-400">My Skills</h2>
+                    <p className="max-w-3xl mx-auto mb-10 text-gray-300 text-base sm:text-lg">
+                        I have cultivated a diverse set of technical skills and tools that I utilize to create efficient, scalable, and
+                        beautiful applications. Whether it's front-end design, backend development, or tooling, these skills help me deliver
+                        quality solutions tailored to modern web needs.
+                    </p>
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
                         {skills.map((skill, index) => (
                             <motion.a
@@ -139,6 +175,7 @@ const Home = () => {
                                 rel="noopener noreferrer"
                                 whileHover={{ scale: 1.05 }}
                                 className="bg-gray-800 p-4 rounded-lg shadow-md transition text-center cursor-pointer hover:bg-gray-700"
+                                aria-label={`Learn more about ${skill.name}`}
                             >
                                 <p className="text-lg font-medium text-cyan-300">{skill.name}</p>
                             </motion.a>
@@ -148,8 +185,38 @@ const Home = () => {
             </section>
 
             {/* Projects Section */}
-            <section>
-                <Projects />
+            <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-cyan-400 mb-6">Featured Projects</h2>
+                    <p className="max-w-2xl mx-auto text-gray-300 text-base sm:text-lg">
+                        Here are some of the top projects I've worked on recently, showcasing my skills in design, development, and problem-solving.
+                        Feel free to explore more projects and see what I can create.
+                    </p>
+                    <div className="max-w-xs mx-auto mt-8">
+                        <Lottie animationData={projectsAnimation} loop={true} />
+                    </div>
+                </div>
+
+                <section className="grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+                    {topProjects.length > 0 ? (
+                        topProjects.map((project) => <Card key={project.id} project={project} />)
+                    ) : (
+                        <p className="text-center text-gray-400 col-span-full">No projects to display.</p>
+                    )}
+
+                    <div className="text-center mt-10 col-span-full">
+                        <Link to="/projects" aria-label="Show More Projects">
+                            <button className="px-6 py-3 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold rounded-xl shadow-md transition">
+                                Show More Projects
+                            </button>
+                        </Link>
+                    </div>
+                </section>
+            </section>
+
+            {/* Contact Section */}
+            <section className="px-4 sm:px-6 lg:px-8 py-20">
+                <ContactSection />
             </section>
         </div>
     );
