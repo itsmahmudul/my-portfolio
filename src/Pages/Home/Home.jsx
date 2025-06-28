@@ -3,6 +3,7 @@ import Pic from '../../assets/My-Pic.png';
 import { ArrowRight, Github, Linkedin } from 'lucide-react';
 import { Link } from 'react-router';
 import { motion } from 'framer-motion';
+import Projects from './Projects/Projects';
 
 const UpworkIcon = (props) => (
     <svg
@@ -29,93 +30,128 @@ const itemVariants = {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
 };
 
+const skills = [
+    { name: 'HTML', url: 'https://developer.mozilla.org/en-US/docs/Web/HTML' },
+    { name: 'CSS', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS' },
+    { name: 'Tailwind CSS', url: 'https://tailwindcss.com/' },
+    { name: 'JavaScript', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
+    { name: 'React', url: 'https://react.dev/' },
+    { name: 'Next.js', url: 'https://nextjs.org/' },
+    { name: 'Node.js', url: 'https://nodejs.org/' },
+    { name: 'Express.js', url: 'https://expressjs.com/' },
+    { name: 'MongoDB', url: 'https://www.mongodb.com/' },
+    { name: 'JWT', url: 'https://jwt.io/' },
+    { name: 'Axios', url: 'https://axios-http.com/' },
+    { name: 'Firebase', url: 'https://firebase.google.com/' },
+    { name: 'Git & GitHub', url: 'https://github.com/' },
+];
+
 const Home = () => {
     return (
-        <motion.div
-            className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-4 font-sans"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-        >
-            {/* Profile Picture */}
-            <motion.div
-                variants={itemVariants}
-                className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-cyan-500 shadow-lg mb-6"
-            >
-                <img
-                    src={Pic}
-                    alt="Mahmudul's Profile"
-                    className="w-full h-full object-cover"
-                />
-            </motion.div>
-
-            {/* Title */}
-            <motion.h1
-                variants={itemVariants}
-                className="text-3xl md:text-5xl font-bold text-center"
-            >
-                CraftedBy<span className="text-cyan-400">Mahmudul</span>
-            </motion.h1>
-
-            {/* Subtitle */}
-            <motion.p
-                variants={itemVariants}
-                className="mt-4 text-lg md:text-xl text-gray-300 text-center max-w-lg"
-            >
-                Frontend Developer specializing in clean UI and interactive web experiences.
-            </motion.p>
-
-            {/* Additional Description */}
-            <motion.p
-                variants={itemVariants}
-                className="mt-4 text-md md:text-lg text-gray-400 text-center max-w-xl"
-            >
-                I am a MERN stack and frontend developer passionate about building scalable, responsive, and user-friendly web applications. Skilled in React, Node.js, Express, and MongoDB, I create seamless digital experiences with a focus on performance and accessibility.
-            </motion.p>
-
-            {/* Social Links */}
-            <motion.div
-                variants={itemVariants}
-                className="flex gap-8 mt-8"
-            >
-                <a
-                    href="https://github.com/itsmahmudul"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="GitHub"
-                    className="text-gray-400 hover:text-cyan-400 transition"
+        <div className="bg-black text-white">
+            {/* Hero Section */}
+            <section>
+                <motion.div
+                    className="min-h-screen flex flex-col items-center justify-center px-4 font-sans"
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate="visible"
                 >
-                    <Github size={28} />
-                </a>
-                <a
-                    href="https://www.linkedin.com/in/md-mahmudul-alam-3a6447370/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="LinkedIn"
-                    className="text-gray-400 hover:text-cyan-400 transition"
-                >
-                    <Linkedin size={28} />
-                </a>
-                <a
-                    href="https://www.upwork.com/freelancers/~01abcdef1234567890"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Upwork"
-                    className="text-gray-400 hover:text-cyan-400 transition"
-                >
-                    <UpworkIcon className="w-7 h-7" />
-                </a>
-            </motion.div>
+                    {/* Profile Picture */}
+                    <motion.div
+                        variants={itemVariants}
+                        className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-cyan-500 shadow-lg mb-6"
+                    >
+                        <img
+                            src={Pic}
+                            alt="Mahmudul's Profile"
+                            className="w-full h-full object-cover"
+                        />
+                    </motion.div>
 
-            {/* CTA Button */}
-            <motion.div variants={itemVariants}>
-                <Link to="/projects">
-                    <button className="mt-6 flex items-center gap-2 px-6 py-3 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold rounded-xl shadow-md transition">
-                        View Projects <ArrowRight size={20} />
-                    </button>
-                </Link>
-            </motion.div>
-        </motion.div>
+                    {/* Title */}
+                    <motion.h1
+                        variants={itemVariants}
+                        className="text-3xl md:text-5xl font-bold text-center"
+                    >
+                        CraftedBy<span className="text-cyan-400">Mahmudul</span>
+                    </motion.h1>
+
+                    {/* Subtitle */}
+                    <motion.p
+                        variants={itemVariants}
+                        className="mt-4 text-lg md:text-xl text-gray-300 text-center max-w-lg"
+                    >
+                        Frontend Developer specializing in clean UI and interactive web experiences.
+                    </motion.p>
+
+                    {/* Additional Description */}
+                    <motion.p
+                        variants={itemVariants}
+                        className="mt-4 text-md md:text-lg text-gray-400 text-center max-w-xl"
+                    >
+                        I am a MERN stack and frontend developer passionate about building scalable, responsive, and user-friendly web applications. Skilled in React, Node.js, Express, and MongoDB, I create seamless digital experiences with a focus on performance and accessibility.
+                    </motion.p>
+
+                    {/* Social Links */}
+                    <motion.div
+                        variants={itemVariants}
+                        className="flex gap-8 mt-8"
+                    >
+                        <a href="https://github.com/itsmahmudul" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-400 transition">
+                            <Github size={28} />
+                        </a>
+                        <a href="https://www.linkedin.com/in/md-mahmudul-alam-3a6447370/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-400 transition">
+                            <Linkedin size={28} />
+                        </a>
+                        <a href="https://www.upwork.com/freelancers/~01abcdef1234567890" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-400 transition">
+                            <UpworkIcon className="w-7 h-7" />
+                        </a>
+                    </motion.div>
+
+                    {/* CTA Button */}
+                    <motion.div variants={itemVariants}>
+                        <Link to="/projects">
+                            <button className="mt-6 flex items-center gap-2 px-6 py-3 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold rounded-xl shadow-md transition">
+                                View Projects <ArrowRight size={20} />
+                            </button>
+                        </Link>
+                    </motion.div>
+                </motion.div>
+            </section>
+
+            {/* Skills Section */}
+            <section className="w-full bg-black py-16 px-4 md:px-20">
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7 }}
+                    viewport={{ once: true }}
+                    className="max-w-6xl mx-auto text-center"
+                >
+                    <h2 className="text-3xl md:text-4xl font-bold mb-10 text-cyan-400">My Skills</h2>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+                        {skills.map((skill, index) => (
+                            <motion.a
+                                key={index}
+                                href={skill.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ scale: 1.05 }}
+                                className="bg-gray-800 p-4 rounded-lg shadow-md transition text-center cursor-pointer hover:bg-gray-700"
+                            >
+                                <p className="text-lg font-medium text-cyan-300">{skill.name}</p>
+                            </motion.a>
+                        ))}
+                    </div>
+                </motion.div>
+            </section>
+
+            {/* Projects Section */}
+            <section>
+                <Projects />
+            </section>
+        </div>
     );
 };
 
