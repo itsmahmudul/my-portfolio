@@ -1,12 +1,40 @@
-# React + Vite
+# 🌐 Personal Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my **Personal Portfolio Website**, a responsive and interactive web application built with **React**, **Tailwind CSS**, **Framer Motion**, and **Lottie animations**. This site serves as a central hub to showcase my development projects, skills, and contact information.
 
-Currently, two official plugins are available:
+🔗 **Live Site:** [https://grand-sunburst-3ba4f0.netlify.app](https://grand-sunburst-3ba4f0.netlify.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 📸 Preview
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+![Portfolio Preview](./assets/preview.png)  
+*A modern, animated, and mobile-friendly portfolio site.*
+
+---
+
+## 🚀 Features
+
+- ✅ **Responsive Design** – Fully optimized for mobile, tablet, and desktop.
+- 🎨 **Tailwind CSS** – Utility-first styling for fast, clean UI.
+- 🧠 **Framer Motion** – Smooth, modern animations for a dynamic experience.
+- 🎥 **Lottie Animations** – Lightweight vector animations for visual impact.
+- 🧩 **Modular Components** – Reusable and organized component structure.
+- 📨 **EmailJS Integration** – Functional contact form for direct messages.
+- 🌌 **Animated Backgrounds** – Custom animated effects for extra flair.
+
+---
+
+## 🛠 Tech Stack
+
+| Tech            | Description                               |
+|-----------------|-------------------------------------------|
+| React           | Frontend UI library                       |
+| Tailwind CSS    | Utility-first CSS framework               |
+| Framer Motion   | Animation and gesture library             |
+| Lottie          | Vector animation engine                   |
+| Lucide Icons    | Beautiful and customizable icon pack      |
+| EmailJS         | Client-side email sending for contact form |
+| React Router    | SPA routing and page navigation           |
+
+---
