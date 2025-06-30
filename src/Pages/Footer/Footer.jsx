@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="bg-black text-gray-300 py-8 px-4">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
         <div className="text-center md:text-left">
-          © {new Date().getFullYear()} Your Company. All rights reserved.
+          © {new Date().getFullYear()} CraftedByMahmudul. All rights reserved.
         </div>
 
         <div className="flex space-x-6">
