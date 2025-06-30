@@ -80,7 +80,7 @@ const Contact = () => {
                             },
                             {
                                 icon: <MessageSquare className="text-white" size={20} />,
-                                text: 'telegram.me/yourusername',
+                                text: 'https://t.me/thanks2324',
                                 href: 'https://t.me/yourusername',
                                 bg: 'bg-cyan-500',
                             },

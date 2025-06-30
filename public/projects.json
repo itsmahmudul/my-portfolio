@@ -19,11 +19,11 @@
   },
   {
     "id": 2,
-    "name": "PlantPal Tracker",
+    "name": "Plant Care Tracker",
     "description": "PlantPal helps users track watering and care routines for their indoor plants with reminders, dashboards, and MongoDB-based storage.",
-    "github": "https://github.com/yourusername/plantpal",
-    "liveDemo": "https://plantpal.web.app/",
-    "image": "https://i.ibb.co/4mQ6c6B/plantpal-preview.png",
+    "github": "https://github.com/itsmahmudul/plant-care-tracker",
+    "liveDemo": "https://plant-care-tracker-6bc76.web.app/",
+    "image": "https://i.ibb.co/JZgY7FL/Screenshot-2025-06-30-145306.png",
     "techStack": [
       { "name": "React", "url": "https://react.dev/" },
       { "name": "Tailwind CSS", "url": "https://tailwindcss.com/" },
@@ -37,11 +37,11 @@
   },
   {
     "id": 3,
-    "name": "Portflow",
-    "description": "A stylish developer portfolio template with animated sections, dark mode, and responsive design using Tailwind CSS and Framer Motion.",
-    "github": "https://github.com/yourusername/portflow",
-    "liveDemo": "https://portflow.web.app/",
-    "image": "https://i.ibb.co/6RYvdMJ/portfolio-demo.png",
+    "name": "Event-Explorer",
+    "description": "Event Explorer is a modern React app for discovering and favoriting events. It features animated UI with Framer Motion, Swiper sliders, toast alerts, and responsive design—offering a seamless, fun, and interactive user experience.",
+    "github": "https://github.com/itsmahmudul/Event-Explorer",
+    "liveDemo": "https://cute-lebkuchen-db4a3e.netlify.app/",
+    "image": "https://i.ibb.co/HTqVNH1S/Screenshot-2025-06-30-145823.png",
     "techStack": [
       { "name": "React", "url": "https://react.dev/" },
       { "name": "Tailwind CSS", "url": "https://tailwindcss.com/" },

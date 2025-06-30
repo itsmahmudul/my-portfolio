@@ -10,6 +10,7 @@ import projectsAnimation from '../../assets/projects.json';
 
 import AnimatedBackground from './Animated-bg/AnimatedBackground';
 import ContactSection from './ContactSection/ContactSection';
+import Education from './Education/Education';
 
 const UpworkIcon = (props) => (
     <svg
@@ -91,9 +92,9 @@ const Home = () => {
                         variants={itemVariants}
                         className="text-3xl sm:text-4xl md:text-5xl font-bold text-center"
                     >
-                        CraftedBy
-                        <span className="text-cyan-400">Mahmudul</span>
+                         MD <span className="text-cyan-400">Mahmudul</span> Alam
                     </motion.h1>
+
 
                     <motion.p
                         variants={itemVariants}
@@ -184,6 +185,10 @@ const Home = () => {
                 </motion.div>
             </section>
 
+            <section>
+                <Education></Education>
+            </section>
+
             {/* Projects Section */}
             <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                 <div className="text-center mb-12">
@@ -206,7 +211,7 @@ const Home = () => {
 
                     <div className="text-center mt-10 col-span-full">
                         <Link to="/projects" aria-label="Show More Projects">
-                            <button className="px-6 py-3 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold rounded-xl shadow-md transition">
+                            <button className="px-6 cursor-pointer py-3 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold rounded-xl shadow-md transition">
                                 Show More Projects
                             </button>
                         </Link>
@@ -215,7 +220,7 @@ const Home = () => {
             </section>
 
             {/* Contact Section */}
-            <section className="px-4 sm:px-6 lg:px-8 py-20">
+            <section id="contact" className="px-4 sm:px-6 lg:px-8 py-20">
                 <ContactSection />
             </section>
         </div>

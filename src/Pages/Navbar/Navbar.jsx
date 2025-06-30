@@ -1,40 +1,65 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router';
+import { NavLink, useNavigate, useLocation } from 'react-router';
 import Logo from '../../../public/1.png';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Download } from 'lucide-react';  // import Download icon
+import { Menu, X, Download } from 'lucide-react';
 
 const Navbar = () => {
     const navLinks = [
-        { name: 'Home', path: '/' },
+        { name: 'Home', path: '#home', isAnchor: true },
         { name: 'Projects', path: '/projects' },
         { name: 'About', path: '/about' },
-        { name: 'Contact', path: '/contact' },
+        { name: 'Contact', path: '#contact', isAnchor: true },
     ];
 
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const handleScroll = () => setScrolled(window.scrollY > 10);
 
     useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 10);
-        };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const handleLinkClick = () => setIsOpen(false);
+    const handleLinkClick = (path) => {
+        setIsOpen(false);
 
-    const cvUrl = '/files/Mahmudul_CV.pdf';  
-    // i will add it after i make it
+        if (path === '#home') {
+            if (location.pathname === '/') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                navigate('/');
+                setTimeout(() => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }, 100);
+            }
+        } else if (path === '#contact') {
+            if (location.pathname === '/') {
+                const el = document.getElementById('contact');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                navigate('/');
+                setTimeout(() => {
+                    const el = document.getElementById('contact');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }, 500);
+            }
+        }
+    };
+
+    const cvUrl = '/files/Mahmudul_CV.pdf';
+    const isHome = location.pathname === '/';
 
     return (
         <motion.nav
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            className={`fixed w-full top-0 z-50 bg-black text-white py-4 px-6 border-b-2 border-cyan-500 flex justify-between items-center
-            ${scrolled ? 'shadow-lg' : ''} transition-shadow duration-300`}
+            transition={{ duration: 0.6 }}
+            className={`fixed w-full top-0 z-50 bg-black text-white py-4 px-6 border-b-2 border-cyan-500 flex justify-between items-center ${scrolled ? 'shadow-lg' : ''
+                } transition-shadow duration-300`}
         >
             {/* Logo */}
             <motion.div
@@ -49,26 +74,34 @@ const Navbar = () => {
                 </span>
             </motion.div>
 
-            {/* Centered Desktop Nav Links */}
+            {/* Desktop nav */}
             <div className="hidden lg:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 gap-8">
-                {navLinks.map((link, index) => (
-                    <motion.div
-                        key={link.name}
-                        initial={{ x: 20, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
-                        className="relative"
-                    >
-                        <NavLink
-                            to={link.path}
-                            end
-                            className={({ isActive }) =>
-                                `hover:text-cyan-400 transition relative py-1 ${isActive ? 'text-cyan-400 font-semibold' : ''
-                                }`
-                            }
+                {navLinks.map((link, index) => {
+                    const isAnchor = link.isAnchor;
+                    const isActive = isAnchor
+                        ? link.path === '#home'
+                            ? isHome
+                            : false
+                        : location.pathname === link.path;
+
+                    return (
+                        <motion.div
+                            key={link.name}
+                            initial={{ x: 20, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
+                            className="relative"
                         >
-                            {({ isActive }) => (
-                                <>
+                            {isAnchor ? (
+                                <a
+                                    href={link.path}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        handleLinkClick(link.path);
+                                    }}
+                                    className={`hover:text-cyan-400 transition relative py-1 ${isActive ? 'text-cyan-400 font-semibold' : ''
+                                        }`}
+                                >
                                     {link.name}
                                     <motion.span
                                         layoutId="underline"
@@ -77,14 +110,36 @@ const Navbar = () => {
                                         transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                                         className="absolute bottom-0 left-0 h-[2px] bg-cyan-400 rounded"
                                     />
-                                </>
+                                </a>
+                            ) : (
+                                <NavLink
+                                    to={link.path}
+                                    end
+                                    className={({ isActive }) =>
+                                        `hover:text-cyan-400 transition relative py-1 ${isActive ? 'text-cyan-400 font-semibold' : ''
+                                        }`
+                                    }
+                                >
+                                    {({ isActive }) => (
+                                        <>
+                                            {link.name}
+                                            <motion.span
+                                                layoutId="underline"
+                                                initial={false}
+                                                animate={{ width: isActive ? '100%' : '0%' }}
+                                                transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                                                className="absolute bottom-0 left-0 h-[2px] bg-cyan-400 rounded"
+                                            />
+                                        </>
+                                    )}
+                                </NavLink>
                             )}
-                        </NavLink>
-                    </motion.div>
-                ))}
+                        </motion.div>
+                    );
+                })}
             </div>
 
-            {/* Download CV Button on Desktop */}
+            {/* Resume Button */}
             <div className="hidden lg:flex">
                 <motion.a
                     href={cvUrl}
@@ -95,12 +150,12 @@ const Navbar = () => {
                     transition={{ delay: 0.7, duration: 0.5 }}
                     className="flex items-center gap-2 px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-white rounded-md font-semibold shadow-md transition cursor-pointer"
                 >
-                    <Download size={16} /> {/* Download icon */}
+                    <Download size={16} />
                     <span>Resume</span>
                 </motion.a>
             </div>
 
-            {/* Hamburger menu button for smaller screens */}
+            {/* Mobile Menu Toggle */}
             <button
                 className="lg:hidden focus:outline-none z-50"
                 onClick={() => setIsOpen(!isOpen)}
@@ -109,7 +164,7 @@ const Navbar = () => {
                 {isOpen ? <X size={24} color="cyan" /> : <Menu size={24} color="cyan" />}
             </button>
 
-            {/* Mobile menu side drawer + backdrop */}
+            {/* Mobile Drawer */}
             <AnimatePresence>
                 {isOpen && (
                     <>
@@ -121,7 +176,6 @@ const Navbar = () => {
                             onClick={() => setIsOpen(false)}
                             className="fixed inset-0 bg-black z-40"
                         />
-
                         <motion.div
                             initial={{ x: '100%' }}
                             animate={{ x: 0 }}
@@ -137,22 +191,43 @@ const Navbar = () => {
                                 <X size={24} color="cyan" />
                             </button>
 
-                            {navLinks.map((link) => (
-                                <NavLink
-                                    key={link.name}
-                                    to={link.path}
-                                    onClick={handleLinkClick}
-                                    className={({ isActive }) =>
-                                        `text-lg py-2 hover:text-cyan-400 transition ${isActive ? 'text-cyan-400 font-semibold' : ''
-                                        }`
-                                    }
-                                    end
-                                >
-                                    {link.name}
-                                </NavLink>
-                            ))}
+                            {navLinks.map((link) => {
+                                const isAnchor = link.isAnchor;
+                                const isActive = isAnchor
+                                    ? link.path === '#home'
+                                        ? isHome
+                                        : false
+                                    : location.pathname === link.path;
 
-                            {/* Download CV Button mobile */}
+                                return isAnchor ? (
+                                    <a
+                                        key={link.name}
+                                        href={link.path}
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            handleLinkClick(link.path);
+                                        }}
+                                        className={`text-lg py-2 hover:text-cyan-400 transition ${isActive ? 'text-cyan-400 font-semibold' : ''
+                                            }`}
+                                    >
+                                        {link.name}
+                                    </a>
+                                ) : (
+                                    <NavLink
+                                        key={link.name}
+                                        to={link.path}
+                                        onClick={() => setIsOpen(false)}
+                                        className={({ isActive }) =>
+                                            `text-lg py-2 hover:text-cyan-400 transition ${isActive ? 'text-cyan-400 font-semibold' : ''
+                                            }`
+                                        }
+                                        end
+                                    >
+                                        {link.name}
+                                    </NavLink>
+                                );
+                            })}
+
                             <a
                                 href={cvUrl}
                                 target="_blank"
