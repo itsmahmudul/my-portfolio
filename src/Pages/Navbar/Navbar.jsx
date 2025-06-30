@@ -8,6 +8,7 @@ const Navbar = () => {
     const navLinks = [
         { name: 'Home', path: '#home', isAnchor: true },
         { name: 'Projects', path: '/projects' },
+        { name: 'About Me', path: '#about', isAnchor: true },
         { name: 'Contact', path: '#contact', isAnchor: true },
     ];
 
@@ -46,8 +47,20 @@ const Navbar = () => {
                     if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }, 500);
             }
+        } else if (path === '#about') {
+            if (location.pathname === '/') {
+                const el = document.getElementById('about');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                navigate('/');
+                setTimeout(() => {
+                    const el = document.getElementById('about');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }, 500);
+            }
         }
     };
+
 
     const cvUrl = '/files/Mahmudul_CV.pdf';
     const isHome = location.pathname === '/';

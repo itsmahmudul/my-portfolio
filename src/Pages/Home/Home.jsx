@@ -11,6 +11,7 @@ import projectsAnimation from '../../assets/projects.json';
 import AnimatedBackground from './Animated-bg/AnimatedBackground';
 import ContactSection from './ContactSection/ContactSection';
 import Education from './Education/Education';
+import About from './AboutMe/AboutMe';
 
 const UpworkIcon = (props) => (
     <svg
@@ -92,7 +93,7 @@ const Home = () => {
                         variants={itemVariants}
                         className="text-3xl sm:text-4xl md:text-5xl font-bold text-center"
                     >
-                         MD <span className="text-cyan-400">Mahmudul</span> Alam
+                        MD <span className="text-cyan-400">Mahmudul</span> Alam
                     </motion.h1>
 
 
@@ -217,6 +218,11 @@ const Home = () => {
                         </Link>
                     </div>
                 </section>
+            </section>
+
+            {/* about me */}
+            <section id="about">
+                <About />
             </section>
 
             {/* Contact Section */}
