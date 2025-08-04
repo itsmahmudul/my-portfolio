@@ -5,7 +5,7 @@
     "description": "Skill Stack is a comprehensive Course Management System enabling users to browse courses, enroll, and manage learning efficiently with secure JWT-based APIs.",
     "github": "https://github.com/itsmahmudul/skill-stack",
     "liveDemo": "https://skill-stack-e19ed.web.app/",
-    "image": "https://i.ibb.co/27yYKPLp/Screenshot-2025-06-28-215257.png",
+    "image": "https://i.ibb.co/8g474Xch/Screenshot-2025-08-04-194855.png",
     "techStack": [
       { "name": "React", "url": "https://react.dev/" },
       { "name": "Tailwind CSS", "url": "https://tailwindcss.com/" },
@@ -23,7 +23,7 @@
     "description": "PlantPal helps users track watering and care routines for their indoor plants with reminders, dashboards, and MongoDB-based storage.",
     "github": "https://github.com/itsmahmudul/plant-care-tracker",
     "liveDemo": "https://plant-care-tracker-6bc76.web.app/",
-    "image": "https://i.ibb.co/JZgY7FL/Screenshot-2025-06-30-145306.png",
+    "image": "https://i.ibb.co/4R4VDvBb/Screenshot-2025-08-04-194751.png",
     "techStack": [
       { "name": "React", "url": "https://react.dev/" },
       { "name": "Tailwind CSS", "url": "https://tailwindcss.com/" },
@@ -41,7 +41,7 @@
     "description": "Event Explorer is a modern React app for discovering and favoriting events. It features animated UI with Framer Motion, Swiper sliders, toast alerts, and responsive design—offering a seamless, fun, and interactive user experience.",
     "github": "https://github.com/itsmahmudul/Event-Explorer",
     "liveDemo": "https://cute-lebkuchen-db4a3e.netlify.app/",
-    "image": "https://i.ibb.co/HTqVNH1S/Screenshot-2025-06-30-145823.png",
+    "image": "https://i.ibb.co/Cs1wkDyh/Screenshot-2025-08-04-194630.png",
     "techStack": [
       { "name": "React", "url": "https://react.dev/" },
       { "name": "Tailwind CSS", "url": "https://tailwindcss.com/" },
@@ -53,22 +53,23 @@
       { "name": "Firebase Hosting", "url": "https://firebase.google.com/products/hosting" }
     ]
   },
-  {
-    "id": 4,
-    "name": "TaskForge",
-    "description": "TaskForge is a simple yet powerful task manager app with authentication, real-time updates, and productivity-focused UI.",
-    "github": "https://github.com/yourusername/taskforge",
-    "liveDemo": "https://taskforge-app.web.app/",
-    "image": "https://i.ibb.co/mGr0bFt/taskforge-snap.png",
-    "techStack": [
-      { "name": "React", "url": "https://react.dev/" },
-      { "name": "Tailwind CSS", "url": "https://tailwindcss.com/" },
-      { "name": "Express.js", "url": "https://expressjs.com/" },
-      { "name": "MongoDB", "url": "https://www.mongodb.com/" },
-      { "name": "JWT Auth", "url": "https://jwt.io/" },
-      { "name": "Axios", "url": "https://axios-http.com/" },
-      { "name": "Node.js", "url": "https://nodejs.org/" },
-      { "name": "Firebase Hosting", "url": "https://firebase.google.com/products/hosting" }
-    ]
-  }
+ {
+  "id": 4,
+  "name": "ThreadHub",
+  "description": "ThreadHub is a modern, real-time community platform for sharing threads and announcements. It features dynamic content updates, user interaction, and a sleek, mobile-responsive UI.",
+  "github": "https://github.com/itsmahmudul/thread-hub-client",
+  "liveDemo": "https://thread-hub-71faf.web.app/",
+  "image": "https://i.ibb.co/wh0jvqtW/Screenshot-2025-08-04-194438.png",
+  "techStack": [
+    { "name": "React", "url": "https://react.dev/" },
+    { "name": "Tailwind CSS", "url": "https://tailwindcss.com/" },
+    { "name": "Firebase Auth", "url": "https://firebase.google.com/products/auth" },
+    { "name": "Firebase Firestore", "url": "https://firebase.google.com/products/firestore" },
+    { "name": "Firebase Hosting", "url": "https://firebase.google.com/products/hosting" },
+    { "name": "Framer Motion", "url": "https://www.framer.com/motion/" },
+    { "name": "React Hook Form", "url": "https://react-hook-form.com/" },
+    { "name": "React Router", "url": "https://reactrouter.com/" }
+  ]
+}
+
 ]

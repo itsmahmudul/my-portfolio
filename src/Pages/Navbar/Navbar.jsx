@@ -62,7 +62,7 @@ const Navbar = () => {
     };
 
 
-    const cvUrl = '/files/Mahmudul_CV.pdf';
+    const cvUrl = "/src/assets/files/Mahmudul's Resume.pdf";
     const isHome = location.pathname === '/';
 
     return (
