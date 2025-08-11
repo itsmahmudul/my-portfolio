@@ -62,7 +62,7 @@ const Navbar = () => {
     };
 
 
-    const cvUrl = "/public/Mahmudul's_Resume.pdf";
+    const cvUrl = "/Mahmudul_Resume.pdf";
     const isHome = location.pathname === '/';
 
     return (
@@ -154,9 +154,8 @@ const Navbar = () => {
             {/* Resume Button */}
             <div className="hidden lg:flex">
                 <motion.a
-                    href={cvUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/Mahmudul_Resume.pdf" // file inside public folder
+                    download="Mahmudul_Resume.pdf"
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.7, duration: 0.5 }}
@@ -242,8 +241,7 @@ const Navbar = () => {
 
                             <a
                                 href={cvUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                download="Mahmudul_Resume.pdf"
                                 onClick={() => setIsOpen(false)}
                                 className="mt-auto flex items-center gap-2 px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-white rounded-md font-semibold shadow-md transition text-center cursor-pointer"
                             >
